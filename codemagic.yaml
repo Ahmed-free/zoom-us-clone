@@ -1,5 +1,6 @@
 workflows:
-  hello-world:
+  build-android:
+    name: Build All
     scripts:
     - name: Set up local properties # required for Android build
       script: |
