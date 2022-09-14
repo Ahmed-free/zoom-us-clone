@@ -1,3 +1,4 @@
+scripts:
 - name: Set up local properties # required for Android build
   script: |
         echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
