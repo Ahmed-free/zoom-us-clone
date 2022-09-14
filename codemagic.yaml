@@ -1,16 +1,17 @@
 workflows:
-hello-world:
-scripts:
-- name: Set up local properties # required for Android build
-  script: |
-        echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+  hello-world:
+    name: Hello world workflow
+      scripts:
+      - name: Set up local properties # required for Android build
+        script: |
+              echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
 
-- name: Build Android debug     # for building in debug mode
-  script: |
-    cd android
-    ./gradlew assembleDebug    
+      - name: Build Android debug     # for building in debug mode
+        script: |
+          cd android
+          ./gradlew assembleDebug    
 
-- name: Build iOS signed        # for building iOS (.ipa)
-  script: |
-    xcode-project use-profiles
-    xcode-project build-ipa --workspace "ios/MyReact.xcworkspace" --scheme "MyReact"    
+      - name: Build iOS signed        # for building iOS (.ipa)
+        script: |
+          xcode-project use-profiles
+          xcode-project build-ipa --workspace "ios/MyReact.xcworkspace" --scheme "MyReact"    
